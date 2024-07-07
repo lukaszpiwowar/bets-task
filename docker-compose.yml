@@ -11,3 +11,17 @@ services:
       - ./data:/var/lib/postgresql/data
     ports:
       - 5433:5432
+  api:
+    build: ./backend/.
+    restart: always
+    ports:
+      - 3000:3000
+  frontend:
+    build: ./frontend/.
+    restart: always
+    ports:
+      - 4000:4000
+    depends_on:
+      - api
+    environment:
+      - REACT_APP_API_URL=http://api:4000    

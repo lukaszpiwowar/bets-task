@@ -12,8 +12,8 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-# Expose port 8080
-EXPOSE 3000
+# Expose port 4000
+EXPOSE 4000
 
 # Start the app
-CMD npm run dev
+CMD npm start
